@@ -1,0 +1,29 @@
+
+What is this application used for?
+==================================
+
+The Timetable generator produces timetables for "UVT Computer Science" for years of study one, two and three simultaneously. The application generates timetables for a selected semester.
+
+How does it work
+================
+
+All the necessary data are read from files. The application internally sets up constraints regarding the Curriculum, the allowed daily workload of students and lecturers, timeslot constraints for certain courses and laboratories, lecturers' availability and so on. The application then invokes a SMT solver (namely z3) to check weather the constraints can be satisfied and if so, to generate a solution. The generated solution is displayed in a user-friendly table.
+
+How to use the Timetable generator
+==================================
+
+The user has to set up the necessary data in the data files (see below) for the semester for which the timetable will be generated. For generating a timetable that takes into account the lecturers' time slot preferences, the check box labeled "Optimize" has to be checked. To begin the generation of a timetable for a certain semester, the corresponding "Generate Semester ... Timetable" has to be pressed. The process of timetable generation takes up time, typically between 10 to 20 minutes on an average laptop, depending on the amount of data and constraints. If the process is successful, a timetable containing the weekly schedule of courses and laboratories for all tree years of study will appear. In case that the constraints cannot be satisfied, no timetable is generated and the user is notified about the failure. In this case the Curriculum, or the constraints must be modified. 
+A good practice is to attempt a timetable generation initially without the "Optimize" box checked. If it is successful, then pursuing the optimization for lecturers' timeslot preferences.
+
+Editing the data files
+======================
+
+The "Curriculum" menu allowes for editing the data regarding the structure of the study years for the selected semester. The data set comprises of the number of subgroups for each year, the names of courses and laboratories, the number of weekly time slots allocated for each course & laboratory and the allocation of lecturers for courses and laboratories. All the data are correlated to each other based on their position (index) in the list where they belong. 
+
+The "Lecturers" menu allows for editing the availability and timeslot preferences of the lecturers. The list labeled "A" contains the availability of a lecturer (first index) in a given time slot (second index). To set a lecturer unavailable for a certain time slot, the corresponding list element has to be set to zero.
+The same goes for the time slot preference list "P".
+
+The "Settings" menu contains constants used to set additional constraints to the timetable, for example the maximum number of subgroups attending together the same laboratory tought by a lecturer in a time slot. All the constants are clearly explained in comments.
+
+
+
