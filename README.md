@@ -1,2 +1,2 @@
 # Thesis
-Mira-Cristina Golcea-Korosi's BSc thesis source code.
+This repository contains the source code for Mira-Cristina Golcea-Korosi's BSc thesis.
